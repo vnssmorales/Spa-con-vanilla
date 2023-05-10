@@ -1,16 +1,9 @@
 import api from './helpers/wp_ap.js';
 import { ajax } from './helpers/ajax.js';
+import { Title } from './components/Title.js';
 
 export function App() {
-  document.getElementById(
-    "root"
-  ).innerHTML = `<h1>Spa con Vanilla</h1>`;
-
-  ajax({
-    url: api.POSTS,
-    cbSuccess: (posts) =>{
-        console.log(posts);
-    }
-  })
-  console.log(api)
+  const d = document,
+  $root = d.getElementById("root");
+  $root.appendChild(Title());
 }
