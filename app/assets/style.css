@@ -1,0 +1,30 @@
+html {
+  box-sizing: border-box; /*quitar los bordes*/
+  font-family: sans-serif;
+  font-size: 16px;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden; /*si se desborda algun elemento no barra de genere scroll*/
+}
+
+a {
+  color: #01579b;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #00b0ff;
+}
+h1{
+    text-align: center;
+}
+img{ /*para imagenes responsivas*/
+    max-width: 100%;
+    height: auto;
+}
