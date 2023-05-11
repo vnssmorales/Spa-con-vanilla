@@ -1,5 +1,4 @@
 import {App} from './App.js';
 
-const d = document;
-
-d.addEventListener('DOMContentLoaded', App);
+document.addEventListener('DOMContentLoaded', App); //cargar app en el navegador
+window.addEventListener("hashchange", App); //cuando cambia el hash se vuelve a ejecutarb app con la nueva ruta

@@ -1,4 +1,4 @@
-import api from "../helpers/wp_ap.js";
+import api from "../helpers/wp_api.js";
 export function Title(){
     //creo un nodo h1 con createElement
     const $h1 = document.createElement("h1"); //variabes que hacen referencia a elementos DOM van con signo $
