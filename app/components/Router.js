@@ -1,6 +1,7 @@
 import api from "../helpers/wp_api.js";
 import { ajax } from "../helpers/ajax.js";
 import { PostCard } from "./PostCard.js";
+import { Post } from "./Post.js";
 
 export async function Router() {
   const $main = document.getElementById("main");
@@ -12,12 +13,11 @@ export async function Router() {
 
   if (!hash || hash === "#/") {
     await ajax({
-      url: api.POSTS,
-      cbSuccess: (main) => {
-        console.log(main);
+        url: api.POSTS,
+      cbSuccess: (posts) => {
+       // console.log(posts);
         let html = "";
-        main.forEach((main) => (html += PostCard(main)));
-        document.querySelector(".loader").style.display = "none";
+        posts.forEach((post) => (html += PostCard(post)));
         $main.innerHTML = html;
       },
     });
@@ -26,8 +26,14 @@ export async function Router() {
   } else if (hash === "#/contacto") {
     $main.innerHTML = "<h2>Sección del contacto</h2>";
   } else {
-    $main.innerHTML =
-      "<h2>Aqui cargara el contenido del post previamente seleccionado</h2>";
+
+      await ajax({
+        url: `${api.POST}/${localStorage.getItem("wpPostId")}`,
+        cbSuccess: (post) => {
+          console.log(post);
+          $main.innerHTML = Post(post);
+        },
+      });
   }
   document.querySelector(".loader").style.display = "none";
 }
