@@ -1,7 +1,7 @@
 //objeto con variables para conectarse a la api
 //https://developer.wordpress.org/rest-api/
 
-const NAME = "css-tricks",
+const NAME = "malvestida",
   DOMAIN = `https://${NAME}.com`,
   SITE = `${DOMAIN}/wp-json`,
   API_WP = `${SITE}/wp/v2`,
