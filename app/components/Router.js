@@ -3,6 +3,7 @@ import { ajax } from "../helpers/ajax.js";
 import { PostCard } from "./PostCard.js";
 import { Post } from "./Post.js";
 import { SearchCard } from "./SearchCard.js";
+import { ContactForm } from "./ContactForm.js";
 
 export async function Router() {
   const $main = document.getElementById("main");
@@ -42,14 +43,15 @@ export async function Router() {
                <mark>${query}</mark>
                </p>`
             }else{  //si trae contenido renderizar esto
-              search.forEach(post => html += SearchCard(post));
+              search.map(post => html += SearchCard(post));
             }
             $main.innerHTML = html;
         }
     })
     
   } else if (hash === "#/contacto") {
-    $main.innerHTML = "<h2>Sección del contacto</h2>";
+    $main.appendChild(ContactForm());
+  
   } else {
 
       await ajax({

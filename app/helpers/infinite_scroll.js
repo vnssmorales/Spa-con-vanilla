@@ -34,7 +34,7 @@ export async function InfiniteScroll() {
         cbSuccess: (posts) => {
             //console.log(post);
             let html = "";
-            posts.forEach(post => (html += Component(post)));
+            posts.map(post => (html += Component(post)));
             document.getElementById("main").insertAdjacentHTML("beforeend",html);
             document.querySelector(".loader").style.display = "none";
         }
